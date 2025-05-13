@@ -1,3 +1,6 @@
+#ifndef StringHelper.h
+#define StringHelper.h
+
 #include <string>
 #include <iostream>
 
@@ -34,3 +37,5 @@ namespace Utils::String{
     };
 
 }
+
+#endif
