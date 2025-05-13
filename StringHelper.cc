@@ -1,13 +1,18 @@
 #include "StringHelper.h"
 #include <cctype>
+#include <stdexcept>  // 예외 클래스
+#include <string>
 
 std::string 
 Utils::String::Larger::toUpperCase(const std::string& str) {
+    if (str.empty()) {
+        throw std::invalid_argument("toUpperCase(): input string is empty");
+    }
+
     std::string result;
-    result.reserve(str.size());    //str의 크기 만큼 메모리 확보
-    for (unsigned char c : str) 
-    {
-        // 비어있는 string인 result에 str의 요소를 upper 해서 하나씩 삽입
+    result.reserve(str.size());
+
+    for (unsigned char c : str) {
         result.push_back(static_cast<char>(std::toupper(c)));
     }
 
@@ -15,25 +20,27 @@ Utils::String::Larger::toUpperCase(const std::string& str) {
 }
 
 std::string 
-Utils::String::Smaller::
-toLowerCase(const std::string& str)
-{
+Utils::String::Smaller::toLowerCase(const std::string& str) {
+    if (str.empty()) {
+        throw std::invalid_argument("toLowerCase(): input string is empty");
+    }
+
     std::string result;
-    result.reserve(str.size());    //str의 크기 만큼 메모리 확보
-    for (unsigned char c : str) 
-    {
-        // 비어있는 string인 result에 str의 요소를 lower 해서 하나씩 삽입
+    result.reserve(str.size());
+
+    for (unsigned char c : str) {
         result.push_back(static_cast<char>(std::tolower(c)));
     }
+
     return result;
 }
 
-// text를 전체 문자열, pattern을 text 내 포함 여부를 확인 해야 하는 문자열로 간주
-// 즉, pattern 문자열은 text 문자열의 부분집합으로 간주
 bool 
-Utils::String::ContainDetect::
-contains(const std::string& text, const std::string& pattern)
-{
+Utils::String::ContainDetect::contains(const std::string& text, const std::string& pattern) {
+    if (text.empty() || pattern.empty()) {
+        throw std::invalid_argument("contains(): text or pattern is empty");
+    } //예외처리
+    
     int total_len = text.length();
     int pattern_len = pattern.length();
     bool result = false;
@@ -58,5 +65,4 @@ contains(const std::string& text, const std::string& pattern)
     }
 
     return result;
-
 }
