@@ -31,11 +31,3 @@ TEST(test, LongString) {
     EXPECT_EQ(Utils::String::ContainDetect::contains(small, "hello"), 0);
 }
 
-TEST(test, ExceptCase) {
-    std::string small(1000, 'a');
-    std::string large(1000, 'A');
-    EXPECT_EQ(Utils::String::Larger::toUpperCase(small), large);
-    EXPECT_EQ(Utils::String::Smaller::toLowerCase(large), small);
-    EXPECT_EQ(Utils::String::ContainDetect::contains(small, "aaaaa"), 1);
-    EXPECT_EQ(Utils::String::ContainDetect::contains(small, "hello"), 0);
-}
