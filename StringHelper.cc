@@ -40,7 +40,7 @@ Utils::String::ContainDetect::contains(const std::string& text, const std::strin
     if (text.empty() || pattern.empty()) {
         throw std::invalid_argument("contains(): text or pattern is empty");
     } //예외처리
-    
+
     int total_len = text.length();
     int pattern_len = pattern.length();
     bool result = false;

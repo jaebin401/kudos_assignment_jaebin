@@ -2,10 +2,9 @@
 #include "StringHelper.h"
 
 TEST(test, EmptyString) {
-    EXPECT_EQ(Utils::String::Larger::toUpperCase(""), "");
-    EXPECT_EQ(Utils::String::Smaller::toLowerCase(""), "");
-    EXPECT_EQ(Utils::String::ContainDetect::contains("", ""), 1);
-    EXPECT_EQ(Utils::String::ContainDetect::contains("", "hello"), 0);
+    EXPECT_EQ(Utils::String::Larger::toUpperCase(""), "toUpperCase(): input string is empty");
+    EXPECT_EQ(Utils::String::Smaller::toLowerCase(""), "toLowerCase(): input string is empty");
+    EXPECT_EQ(Utils::String::ContainDetect::contains("", ""), "contains(): text or pattern is empty");
 }
 
 TEST(test, GeneralString) {

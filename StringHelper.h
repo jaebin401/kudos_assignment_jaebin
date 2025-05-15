@@ -1,5 +1,5 @@
-#ifndef StringHelper.h
-#define StringHelper.h
+#ifndef STRIGN_HELPER_H
+#define STRIGN_HELPER_H
 
 #include <string>
 #include <iostream>
